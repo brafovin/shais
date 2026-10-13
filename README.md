@@ -7,11 +7,14 @@ An interactive BMW website built with **React**, **three.js** and
   with a reflective floor. You can drag to orbit 360°, auto-rotate it, and
   switch between seven M4 paint colours (São Paulo Yellow, Isle of Man Green,
   Portimao Blue, …).
-- **X family section:** cards for the BMW SUVs (X1, X2, X3, X5, X6, X7, XM and
-  iX). You can filter them by body type, electrified or M Performance and sort
-  them by price.
-- **Details & prices:** every card has a button that opens a dialog with the
-  description, a table of trims and prices, key specs and highlights. Prev/next
+- **X family 3D showroom:** the X1, X2, X3, X5, X6, X7, XM and iX are
+  modelled in 3D in code. Pick a model and it drives onto a turntable, where
+  you can rotate it and change its paint. Its starting price, power and 0–60
+  time are shown next to it. You can also filter the models by body type,
+  electrified or M Performance and sort them by price.
+- **Details & prices:** every model has a button that opens a dialog with a
+  slowly turning 3D view, the description, a table of trims and prices, key
+  specs and highlights. Prev/next
   buttons move between models. The M4 in the header has its own
   “Details & prices” button.
 
@@ -48,7 +51,7 @@ src/
     Hero.jsx                 3D header, M4 stats, paint picker
     ModelsSection.jsx        X family grid, filters, sorting
     ModelModal.jsx           description / trims & prices dialog
-    CarSilhouette.jsx        generated SVG side views for the cards
+    SceneBoundary.jsx        fallback message when WebGL is unavailable
     Footer.jsx
   three/
     M4Scene.jsx              Canvas, studio lighting, floor, controls
@@ -58,6 +61,14 @@ src/
     materials.js             paint, glass, carbon fibre, lights …
     RealM4.jsx               realistic GLB car, recolouring, fallback
     aero.js                  wing, splitter and canards
+    XScene.jsx               X family showroom (stage + selected model)
+    ModelViewer.jsx          small 3D view in the details dialog
+    stage.jsx                shared studio lights, floor, camera, controls
+    vehicle/
+      body.js                parametric car body (loft + projections)
+      parts.js               glass, trims, kidneys, lamps, wheels, badges
+      specs.js               X1–XM / iX dimensions and styling
+      XCar.jsx               builds and renders an X model
   data/
     models.js                M4 + X models: descriptions, trims, prices
     paints.js                M4 paint colours
@@ -68,8 +79,8 @@ src/
 ## Editing models and prices
 
 All content lives in `src/data/models.js`: names, descriptions, trims, prices,
-specs and highlights. The `look` object on each model sets the proportions and
-paint colour of its illustration.
+specs and highlights. The shapes and default colours of the 3D X models live
+in `src/three/vehicle/specs.js`.
 
 Prices are **indicative US starting MSRPs (model year 2026, excluding
 destination)** and change often. Check them against

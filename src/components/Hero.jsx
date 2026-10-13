@@ -1,24 +1,12 @@
-import { Component, lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import SceneBoundary from './SceneBoundary.jsx'
 import { M4, formatPrice } from '../data/models.js'
 import { PAINTS } from '../data/paints.js'
 
 // three.js is only downloaded once the hero mounts, keeping the first paint fast.
 const M4Scene = lazy(() => import('../three/M4Scene.jsx'))
 
-class SceneBoundary extends Component {
-  state = { failed: false }
-  static getDerivedStateFromError() {
-    return { failed: true }
-  }
-  render() {
-    if (this.state.failed) {
-      return <div className="hero__fallback">3D preview unavailable on this device — WebGL is required.</div>
-    }
-    return this.props.children
-  }
-}
-
-function usePrefersReducedMotion() {
+export function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   )

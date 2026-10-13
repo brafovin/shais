@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import { formatPrice, PRICE_NOTE } from '../data/models.js'
-import CarSilhouette from './CarSilhouette.jsx'
+import SceneBoundary from './SceneBoundary.jsx'
+
+const ModelViewer = lazy(() => import('../three/ModelViewer.jsx'))
 
 /**
  * Details dialog: description, trims with prices, specs and highlights.
@@ -74,7 +76,13 @@ export default function ModelModal({ model, list = [], onClose, onNavigate }) {
             <h2 id="modal-title">{model.name}</h2>
             <p className="modal__tagline">{model.tagline}</p>
           </div>
-          <CarSilhouette look={model.look} className="modal__car" title={`${model.name} illustration`} />
+          <div className="modal__car" aria-label={`${model.name} 3D view`}>
+            <SceneBoundary>
+              <Suspense fallback={<span className="spinner modal__spinner" aria-hidden="true" />}>
+                <ModelViewer key={model.id} modelId={model.id} />
+              </Suspense>
+            </SceneBoundary>
+          </div>
           <p className="modal__paint">Shown in {model.look.paintName}</p>
         </div>
 

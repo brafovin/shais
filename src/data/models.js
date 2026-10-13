@@ -20,7 +20,7 @@ export const M4 = {
   description:
     'The M4 Competition is the purest expression of BMW M on the road: a 3.0-litre M TwinPower Turbo inline-six, a carbon-fibre roof that lowers the centre of gravity and a chassis tuned on the Nürburgring. Choose rear-wheel drive for the classic M experience or M xDrive for all-weather traction with a switchable 2WD mode.',
   startingPrice: 85500,
-  look: { style: 'coupe', paint: '#f2c200', paintName: 'São Paulo Yellow' },
+  look: { paint: '#cfd01a', paintName: 'São Paulo Yellow' },
   stats: [
     { value: '503', unit: 'hp', label: 'Max. power (RWD)' },
     { value: '479', unit: 'lb-ft', label: 'Torque' },
@@ -57,7 +57,7 @@ export const X_MODELS = [
     description:
       'Big-car technology in a city-friendly footprint. The X1 pairs a punchy 2.0-litre turbo with standard xDrive, a floating armrest and the BMW Curved Display — and the M35i turns it into a genuine hot hatch on stilts.',
     startingPrice: 43200,
-    look: { style: 'sav', length: 0.86, belt: 86, roof: 130, wheel: 0.94, paint: '#d9661f', paintName: 'Utah Orange' },
+    look: { paint: '#eceeed', paintName: 'Alpine White' },
     trims: [
       { name: 'X1 xDrive28i', drive: 'AWD', power: '241 hp', accel: '6.2 s', price: 43200 },
       { name: 'X1 M35i xDrive', drive: 'AWD', power: '312 hp', accel: '5.2 s', price: 51900 },
@@ -79,7 +79,7 @@ export const X_MODELS = [
     description:
       'The X2 trades a little headroom for a lot of attitude. Its fastback roofline, large kidney grille and sporty seating position make it the most expressive compact BMW — with more cargo room than ever before.',
     startingPrice: 44700,
-    look: { style: 'sac', length: 0.89, belt: 84, roof: 124, wheel: 0.97, paint: '#1f56b4', paintName: 'M Portimao Blue' },
+    look: { paint: '#0c0e12', paintName: 'Black Sapphire metallic' },
     trims: [
       { name: 'X2 xDrive28i', drive: 'AWD', power: '241 hp', accel: '6.2 s', price: 44700 },
       { name: 'X2 M35i xDrive', drive: 'AWD', power: '312 hp', accel: '5.2 s', price: 53100 },
@@ -101,7 +101,7 @@ export const X_MODELS = [
     description:
       'The all-new X3 is larger, sharper and more efficient. A 48-volt mild hybrid supports every engine, the cabin is wrapped in sustainable materials, and the six-cylinder M50 delivers M performance with family-car practicality.',
     startingPrice: 51300,
-    look: { style: 'sav', length: 0.92, belt: 90, roof: 136, wheel: 1.0, paint: '#4a7fb5', paintName: 'Arctic Race Blue' },
+    look: { paint: '#cfccc6', paintName: 'Dune Grey metallic' },
     trims: [
       { name: 'X3 30 xDrive', drive: 'AWD', power: '255 hp', accel: '5.6 s', price: 51300 },
       { name: 'X3 M50 xDrive', drive: 'AWD', power: '393 hp', accel: '4.4 s', price: 66100 },
@@ -123,7 +123,7 @@ export const X_MODELS = [
     description:
       'Twenty-five years after it invented the segment, the X5 is still the reference. Choose a silky inline-six, the plug-in hybrid xDrive50e with around 40 miles of electric range, the V8 M60i — or the 617-hp X5 M Competition.',
     startingPrice: 68300,
-    look: { style: 'sav', length: 0.98, belt: 96, roof: 142, wheel: 1.06, windows: 3, paint: '#dfe1e0', paintName: 'Mineral White' },
+    look: { paint: '#8a8574', paintName: 'Dravit Grey metallic' },
     trims: [
       { name: 'X5 sDrive40i', drive: 'RWD', power: '375 hp', accel: '5.4 s', price: 68300 },
       { name: 'X5 xDrive40i', drive: 'AWD', power: '375 hp', accel: '5.3 s', price: 70600 },
@@ -148,7 +148,7 @@ export const X_MODELS = [
     description:
       'Muscular shoulders, a dramatic sloping roof and an optional illuminated kidney grille make the X6 impossible to ignore. Underneath it shares the X5’s brilliant chassis, from the mild-hybrid six to the 617-hp X6 M Competition.',
     startingPrice: 77300,
-    look: { style: 'sac', length: 0.98, belt: 94, roof: 134, wheel: 1.08, paint: '#8f9497', paintName: 'Frozen Pure Grey' },
+    look: { paint: '#8b9096', paintName: 'Brooklyn Grey metallic' },
     trims: [
       { name: 'X6 xDrive40i', drive: 'AWD', power: '375 hp', accel: '5.3 s', price: 77300 },
       { name: 'X6 M60i xDrive', drive: 'AWD', power: '523 hp', accel: '4.2 s', price: 99000 },
@@ -171,7 +171,7 @@ export const X_MODELS = [
     description:
       'The flagship BMW SAV seats up to seven in first-class comfort. Split headlights, a crystal gear selector and executive lounge seating set the tone, while the M60i and ALPINA XB7 prove that size never has to slow you down.',
     startingPrice: 87500,
-    look: { style: 'sav', length: 1.05, belt: 100, roof: 148, wheel: 1.08, windows: 3, boxy: true, paint: '#1d2a4f', paintName: 'Tanzanite Blue' },
+    look: { paint: '#1e2a4d', paintName: 'Tanzanite Blue metallic' },
     trims: [
       { name: 'X7 xDrive40i', drive: 'AWD', power: '375 hp', accel: '5.6 s', price: 87500 },
       { name: 'X7 M60i xDrive', drive: 'AWD', power: '523 hp', accel: '4.5 s', price: 113800 },
@@ -194,7 +194,7 @@ export const X_MODELS = [
     description:
       'The XM is BMW M’s first standalone model since the M1. A 4.4-litre twin-turbo V8 joins forces with an electric motor for up to 738 hp in the XM Label, wrapped in an unmistakable design with an M Lounge rear cabin.',
     startingPrice: 159600,
-    look: { style: 'sav', length: 1.0, belt: 98, roof: 138, wheel: 1.12, paint: '#4b6152', paintName: 'Cape York Green' },
+    look: { paint: '#3d4a40', paintName: 'Cape York Green metallic' },
     trims: [
       { name: 'XM', drive: 'AWD', power: '644 hp', accel: '4.1 s', price: 159600 },
       { name: 'XM Label', drive: 'AWD', power: '738 hp', accel: '3.7 s', price: 187500 },
@@ -216,7 +216,7 @@ export const X_MODELS = [
     description:
       'Designed from a blank sheet as an EV, the iX combines a minimalist, lounge-like cabin with up to roughly 340 miles of EPA-estimated range. Over-the-air updates keep it fresh, and the iX M70 delivers M-level acceleration in total silence.',
     startingPrice: 75150,
-    look: { style: 'sav', length: 0.96, belt: 92, roof: 140, wheel: 1.04, ev: true, paint: '#3a5a96', paintName: 'Phytonic Blue' },
+    look: { paint: '#8e9296', paintName: 'Frozen Pure Grey (matte)' },
     trims: [
       { name: 'iX xDrive45', drive: 'AWD', power: '402 hp', accel: '4.9 s', price: 75150 },
       { name: 'iX xDrive60', drive: 'AWD', power: '536 hp', accel: '4.4 s', price: 88500 },
