@@ -1,6 +1,6 @@
 /** Paint finishes offered in the configurator (BMW M4 Competition palette). */
 export const PAINTS = [
-  { id: 'sao-paulo', name: 'São Paulo Yellow', hex: '#f2c200', metallic: false },
+  { id: 'sao-paulo', name: 'São Paulo Yellow', hex: '#cfd01a', metallic: false },
   { id: 'isle-of-man', name: 'Isle of Man Green', hex: '#0b5c43', metallic: true },
   { id: 'portimao', name: 'Portimao Blue', hex: '#1b4fb0', metallic: true },
   { id: 'toronto', name: 'Toronto Red', hex: '#a0121c', metallic: true },

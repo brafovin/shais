@@ -1,8 +1,15 @@
-import { Suspense, useEffect, useLayoutEffect, useRef } from 'react'
+import { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
-import { ContactShadows, Environment, Lightformer, MeshReflectorMaterial, OrbitControls } from '@react-three/drei'
+import {
+  ContactShadows,
+  Environment,
+  Lightformer,
+  MeshReflectorMaterial,
+  OrbitControls,
+  useProgress,
+} from '@react-three/drei'
 import ProceduralM4 from './ProceduralM4.jsx'
-import ExternalCar, { ModelErrorBoundary, useOptionalModel } from './ExternalCar.jsx'
+import RealM4, { ModelErrorBoundary } from './RealM4.jsx'
 
 const BG = '#08090b'
 
@@ -110,20 +117,41 @@ function Controls({ autoRotate }) {
 }
 
 function Car({ paint }) {
-  const availability = useOptionalModel()
-  const procedural = <ProceduralM4 paint={paint} />
-  if (availability !== 'available') return procedural
   return (
-    <ModelErrorBoundary fallback={procedural}>
-      <Suspense fallback={procedural}>
-        <ExternalCar paint={paint} />
+    <ModelErrorBoundary fallback={<ProceduralM4 paint={paint} />}>
+      <Suspense fallback={null}>
+        <RealM4 paint={paint} />
       </Suspense>
     </ModelErrorBoundary>
   )
 }
 
+/** Download progress of the 3D model, shown over the canvas. */
+function LoadingOverlay() {
+  const { active, progress } = useProgress()
+  const [visible, setVisible] = useState(true)
+  useEffect(() => {
+    if (active) setVisible(true)
+    else if (progress >= 100) {
+      const t = setTimeout(() => setVisible(false), 250)
+      return () => clearTimeout(t)
+    }
+  }, [active, progress])
+  if (!visible) return null
+  return (
+    <div className={`scene-loader ${active ? '' : 'scene-loader--done'}`} role="status">
+      <span className="scene-loader__label">Loading M4 Competition</span>
+      <span className="scene-loader__bar">
+        <span style={{ transform: `scaleX(${Math.max(0.04, progress / 100)})` }} />
+      </span>
+      <span className="scene-loader__pct">{Math.round(progress)}%</span>
+    </div>
+  )
+}
+
 export default function M4Scene({ paint, active = true, autoRotate = true }) {
   return (
+    <>
     <Canvas
       frameloop={active ? 'always' : 'never'}
       dpr={[1, 1.75]}
@@ -145,5 +173,7 @@ export default function M4Scene({ paint, active = true, autoRotate = true }) {
       <Studio />
       <Controls autoRotate={autoRotate} />
     </Canvas>
+    <LoadingOverlay />
+    </>
   )
 }

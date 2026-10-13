@@ -15,12 +15,17 @@ An interactive BMW website built with **React**, **three.js** and
   buttons move between models. The M4 in the header has its own
   “Details & prices” button.
 
-The M4 is generated **procedurally in code** (`src/three/carShape.js`), so the
-project needs no downloaded 3D assets. Its parts include:
+The header car is a realistic 3D model of the **2021 BMW M4 Competition** by
+Ricy (@ngon_3d), licensed **CC BY-NC 4.0**. That licence allows non-commercial
+use only, with credit to the author; see
+`src/assets/models/ATTRIBUTION.md`. In the browser the site:
 
-- a lofted body with flared wheel arches and a carbon roof;
-- the kidney grille, LED headlights and L-shaped tail lights;
-- quad exhausts, Y-spoke wheels and blue brake calipers.
+- paints the car São Paulo Yellow, with dark bronze wheels and blue calipers;
+- adds a carbon swan-neck wing, front splitter and canards, modelled after
+  the reference photos.
+
+If the model can't load, the site falls back to a procedurally generated M4
+(`src/three/carShape.js`).
 
 ## Getting started
 
@@ -51,11 +56,13 @@ src/
     carShape.js              body/cabin geometry generator
     Wheel.jsx                tyres, Y-spoke rims, brakes
     materials.js             paint, glass, carbon fibre, lights …
-    ExternalCar.jsx          optional GLB loader
+    RealM4.jsx               realistic GLB car, recolouring, fallback
+    aero.js                  wing, splitter and canards
   data/
     models.js                M4 + X models: descriptions, trims, prices
     paints.js                M4 paint colours
-  config.js                  settings for an optional GLB model
+  config.js                  3D model settings + credit
+  assets/models/             optimised M4 model + attribution
 ```
 
 ## Editing models and prices
@@ -68,16 +75,15 @@ Prices are **indicative US starting MSRPs (model year 2026, excluding
 destination)** and change often. Check them against
 [bmwusa.com](https://www.bmwusa.com) before publishing.
 
-## Using a real M4 3D model (optional)
+## Swapping the 3D model
 
-If you have a **licensed** glTF model of the M4 (G82), save it as
-`public/models/m4.glb`. It replaces the procedural car automatically. You can
-adjust it in `src/config.js`:
+To use a different car model, replace `src/assets/models/m4-competition.glb`
+and adjust `src/config.js`:
 
 - `rotationY`: set it so the car's nose points towards +X.
 - `length`: the model is scaled to this length in metres.
-- `paintMaterial`: a regex for the material names that the paint picker
-  should recolour.
+- `materials`: the names of the paint, rim and caliper materials that the
+  site recolours.
 
 ## Notes
 
