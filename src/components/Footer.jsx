@@ -1,4 +1,5 @@
 import { PRICE_NOTE } from '../data/models.js'
+import { M4_MODEL_CREDIT as credit } from '../config.js'
 
 export default function Footer() {
   return (
@@ -28,6 +29,17 @@ export default function Footer() {
         * {PRICE_NOTE} Top speed of 180 mph requires the optional M Driver’s Package. This is an unofficial fan
         project and is not affiliated with or endorsed by BMW AG. BMW, M4, X1–X7, XM and iX are trademarks of
         BMW AG.
+      </p>
+      <p className="footer__credit">
+        3D model: “
+        <a href={credit.url} target="_blank" rel="noreferrer">
+          {credit.title}
+        </a>
+        ” by {credit.author}, licensed under{' '}
+        <a href={credit.licenseUrl} target="_blank" rel="noreferrer">
+          {credit.license}
+        </a>
+        . Recoloured and fitted with aero parts for this site.
       </p>
     </footer>
   )
