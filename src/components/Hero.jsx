@@ -104,6 +104,9 @@ export default function Hero({ onShowDetails }) {
         </dl>
 
         <div className="hero__config">
+          <p className="hero__hint" aria-hidden="true">
+            <span className="hint-icon" /> Drag to explore 360°
+          </p>
           <div className="paint">
             <p className="paint__label">
               <span>Paint</span> {paint.name}
@@ -128,9 +131,6 @@ export default function Hero({ onShowDetails }) {
           </button>
         </div>
 
-        <p className="hero__hint" aria-hidden="true">
-          <span className="hint-icon" /> Drag to explore 360°
-        </p>
       </div>
     </section>
   )

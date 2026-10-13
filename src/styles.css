@@ -477,10 +477,6 @@ button {
 }
 
 .hero__hint {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(20px, 4vh, 40px);
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
