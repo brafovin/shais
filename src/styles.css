@@ -628,7 +628,8 @@ button {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.35);
 }
-.chip--active {
+.chip--active,
+.chip--active:hover {
   background: var(--text);
   border-color: var(--text);
   color: #08090b;
